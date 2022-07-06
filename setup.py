@@ -11,17 +11,6 @@ with open(join(current_path, "README.md"), "r", encoding="utf-8") as fh:
 with open(join(current_path, "requirements.txt"), "r", encoding="utf=8") as fh:
     requires = fh.readlines()
 
-
-def get_version(rel_path):
-    with open(rel_path) as fh:
-        for line in fh.readlines():
-            if line.startswith('__version__'):
-                delim = '"' if '"' in line else "'"
-                return line.split(delim)[1]
-        else:
-            raise RuntimeError("Unable to find version string.")
-
-
 setuptools.setup(
     name="tensorflow-intel",
     version="0.0.1",
